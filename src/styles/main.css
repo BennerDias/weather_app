@@ -1,0 +1,227 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0);
+  padding: 1rem 1rem 2rem 1rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  outline: 1px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(2px);
+  text-align: center;
+  width: min(1400px, 96vw);
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 200px;
+}
+
+button:hover {
+  background-color: #357abd;
+}
+
+.result {
+  margin-top: 1rem;
+  color: #444;
+}
+
+.weekly-header {
+  margin: 1rem 0 1rem 0;
+}
+.weekly-header h2 {
+  margin: 0 0 0.25rem 0;
+}
+.weekly-header p {
+  margin: 0;
+  color: #c9c9c9;
+  font-size: 0.95rem;
+}
+
+/* Estados por clima aplicado no <body> */
+body.body--rainy .weekly-header p {
+  color: #000;
+}
+
+/* Forçar texto preto quando o clima for nevando (fundo claro) */
+body.body--snowy h1,
+body.body--snowy .result,
+body.body--snowy label,
+body.body--snowy input,
+body.body--snowy button,
+body.body--snowy .weekly-header h2,
+body.body--snowy .weekly-header p,
+body.body--snowy .day-card .overlay,
+body.body--snowy .current-card,
+body.body--snowy .current-card .city-name {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+/* Ajustar overlays para ficarem claras em snowy */
+body.body--snowy .day-card .overlay {
+  background: rgba(255, 255, 255, 0.55);
+}
+body.body--snowy .current-card {
+  background: rgba(255, 255, 255, 0.65);
+}
+
+/* Inputs e botões em snowy */
+body.body--snowy input[type="text"] {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+body.body--snowy button {
+  background-color: rgba(74, 144, 226, 0.9);
+  color: #000;
+}
+body.body--snowy button:hover {
+  background-color: rgba(53, 122, 189, 0.9);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.day-card {
+  position: relative;
+  min-height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.day-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+}
+.day-card .date {
+  font-weight: 600;
+}
+.day-card .temps {
+  display: flex;
+  gap: 8px;
+  font-size: 1.1rem;
+}
+.day-card .tmax {
+  color: #ffd36e;
+}
+.day-card .tmin {
+  color: #c7e1ff;
+}
+
+.day-card .meta {
+  display: flex;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.sun-times {
+  font-size: 0.85rem;
+  color: #eaeaea;
+}
+
+/* Card atual (maior) */
+.current-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  align-items: center;
+  min-height: 220px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  margin-bottom: 16px;
+}
+.current-card .left {
+  text-align: left;
+}
+.current-card .right {
+  display: grid;
+  gap: 6px;
+}
+.current-card .city-name {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+.current-meta {
+  display: flex;
+  gap: 12px;
+}
+
+/* layout do bloco de resultados */
+.result {
+  margin-top: 1rem;
+  color: #fff;
+}
+
+/* Ajustes de tipografia para fundo escuro */
+h1 {
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+label,
+input,
+button {
+  color: #fff;
+}
+input[type="text"] {
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+button {
+  background-color: rgba(74, 144, 226, 0.9);
+}
+button:hover {
+  background-color: rgba(53, 122, 189, 0.9);
+}
