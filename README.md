@@ -1,6 +1,6 @@
 # 🎯 WeatherApp: Previsão do Tempo com Paixão por Design e JS Puro
 
-## Olá, Recrutador(a)!
+## Olá! 
 
 **Pare e observe.** Este não é apenas mais um aplicativo de previsão do tempo. É a prova concreta de que a base do desenvolvimento web — **HTML, CSS e JavaScript Vanilla** — é a espinha dorsal de qualquer produto digital robusto e atraente.
 
@@ -104,3 +104,4 @@ Para testar esta aplicação em sua máquina, siga os passos simples abaixo.
 * **Licença:** [MIT License](LICENSE) (Se aplicável)
 
 👋 *Obrigado pela sua visita e espero que este projeto demonstre meu comprometimento com código limpo e design de qualidade.*
+
